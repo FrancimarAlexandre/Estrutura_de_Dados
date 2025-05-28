@@ -16,7 +16,7 @@ def counting_sort(arr):
     return arr
 
 
-tamanhos = [10, 100, 500, 1000,2000,5000,10000,50000,100000]
+tamanhos = [10, 100, 500, 1000,2000,5000,10000,50000]
 
 with open("distribution_sort.txt", "w") as f:
     f.write("tamanho tempo\n")

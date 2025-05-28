@@ -9,7 +9,7 @@ def selection_sort(v):
                 min_index = j
         v[i], v[min_index] = v[min_index], v[i]
 
-tamanhos = [10, 100, 500, 1000,2000,5000,10000,50000,100000]
+tamanhos = [10, 100, 500, 1000,2000,5000,10000,50000]
 
 def tb(v):
     return sorted(v)

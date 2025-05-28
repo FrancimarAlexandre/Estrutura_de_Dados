@@ -1,5 +1,5 @@
 import time, random,sys
-sys.setrecursionlimit(100000)
+sys.setrecursionlimit(100000) # corrigi erro limite de recursividade
 
 def quick_sort(v,s,e):
     if (s<e):
@@ -26,7 +26,7 @@ def partition (v,s,e):
     return i+1
 
 
-tamanhos = [10, 100, 500, 1000,2000,5000,10000,50000,100000]
+tamanhos = [10, 100, 500, 1000,2000,5000,10000,50000]
 # pior caso
 def tw(v):
      return sorted(v, reverse=True)

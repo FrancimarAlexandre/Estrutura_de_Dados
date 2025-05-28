@@ -1,6 +1,6 @@
 import time, random
 
-tamanhos = [10, 100, 500, 1000,2000,5000,10000,50000,100000]
+tamanhos = [10, 100, 500, 1000,2000,5000,10000,50000]
 
 def merge(arr, l, m, r):
     n1 = m - l + 1

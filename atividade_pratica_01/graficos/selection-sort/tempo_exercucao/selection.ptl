@@ -1,0 +1,10 @@
+set title "Selection Sort"
+set xlabel "Tamanho do vetor"
+set ylabel "Tempo (segundos)"
+set grid
+set key left top
+set datafile separator whitespace
+
+plot "selection_sort_tb.txt" using 1:2 with linespoints title "Melhor Caso", \
+     "selection_sort_tw.txt" using 1:2 with linespoints title "Pior Caso", \
+     "selection_sort_ta.txt" using 1:2 with linespoints title "Caso Medio"

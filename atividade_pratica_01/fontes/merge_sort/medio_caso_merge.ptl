@@ -1,8 +1,0 @@
-set title "Merge Sort"
-set xlabel "Tamanho do vetor"
-set ylabel "Tempo (segundos)"
-set grid
-set key left top
-set datafile separator whitespace
-
-plot "merge_sort_ta.txt" using 1:2 with lines title "Caso Medio"

@@ -1,22 +1,19 @@
 import time, random
 
-def counting_sort(arr):
-    k = max(arr) + 1  # Valor máximo do vetor + 1
-    contagem = [0] * k
-
-    for num in arr:
-        contagem[num] += 1
-
-    i = 0
-    for num in range(k):
-        while contagem[num] > 0:
-            arr[i] = num
-            i += 1
-            contagem[num] -= 1
-    return arr
+def counting_sort(A):
+    if not A:
+        return []
+    max_val = max(A)
+    count = [0] * (max_val + 1)
+    for num in A:
+        count[num] += 1
+    resultado = []
+    for i, c in enumerate(count):
+        resultado.extend([i] * c)
+    return resultado
 
 
-tamanhos = [10, 100, 500, 1000,2000,5000,10000,50000]
+tamanhos = [10, 100, 150, 200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000]
 
 with open("distribution_sort.txt", "w") as f:
     f.write("tamanho tempo\n")

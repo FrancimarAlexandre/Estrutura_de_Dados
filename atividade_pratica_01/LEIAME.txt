@@ -1,0 +1,19 @@
+No diretório "fontes" encontram-se:
+
+- Os códigos dos algoritmos utilizados para ordenação.
+
+Como usar os códigos:
+
+1. Acesse o diretório "fontes".
+2. Escolha um dos algoritmos e entre na respectiva pasta.
+3. Execute o seguinte comando:
+
+   - Para Windows: python arquivo.py
+   - Para Linux ou macOS: python3 arquivo.py
+
+No diretório "gráficos" encontram-se:
+
+- Os arquivos .txt com os tempos de execução
+- O arquivo .plt para geração dos gráficos com Gnuplot
+- As imagens dos gráficos, organizadas em subpastas por algoritmo
+

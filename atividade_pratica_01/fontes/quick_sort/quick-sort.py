@@ -1,32 +1,17 @@
 import time, random,sys
 sys.setrecursionlimit(100000) # corrigi erro limite de recursividade
 
-def quick_sort(v,s,e):
-    if (s<e):
-        p = partition (v,s,e)
-        quick_sort (v,s,p-1)
-        quick_sort(v,p+1,e)
+def quick_sort(A):
+    if len(A) <= 1:
+        return A
+    pivot = A[-1]
+    menores = [x for x in A[:-1] if x <= pivot]
+    maiores = [x for x in A[:-1] if x > pivot]
+    return quick_sort(menores) + [pivot] + quick_sort(maiores)
 
 
-    
-def partition (v,s,e):
-    k =v[e]
-    j = s-1
-    auxiliar = 0
-    for i in range (s,e):
-        if v[1]<= v[i]:
-            j+=1
-            auxiliar = v[i]
-            v[j] =v[i]
-            v[i] = auxiliar
-        
-    auxiliar = v[e]
-    v[e] = v [i+1]
-    v[i+1]= auxiliar
-    return i+1
+tamanhos = [10, 100, 150, 200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000]
 
-
-tamanhos = [10, 100, 500, 1000,2000,5000,10000,50000]
 # pior caso
 def tw(v):
      return sorted(v, reverse=True)
@@ -35,11 +20,9 @@ with open("quick_sort_tw.txt","w") as f:
 
      for n in tamanhos:
          vetor = [random.randint(0,1000000) for _ in range(n)]
-         s = 0
-         e = len(vetor) - 1
          v = tw(vetor)
          inicio = time.time()
-         quick_sort(v,s,e)
+         quick_sort(v)
          fim = time.time()
 
          tempo = fim - inicio
@@ -61,12 +44,10 @@ with open("quick_sort_tb.txt","w") as f:
 
      for n in tamanhos:
          vetor = [random.randint(0,1000000) for _ in range(n)]
-         s = 0
-         e = len(vetor) - 1
          v = tb(vetor)
 
          inicio = time.time()
-         quick_sort(v,s,e)
+         quick_sort(v)
          fim = time.time()
 
          tempo = fim - inicio
@@ -84,12 +65,10 @@ with open("quick_sort_ta.txt","w") as f:
 
     for n in tamanhos:
         vetor = [random.randint(0,1000000) for _ in range(n)]
-        s = 0
-        e = len(vetor) - 1
         v = ta(vetor)
 
         inicio = time.time()
-        quick_sort(v,s,e)
+        quick_sort(v)
         fim = time.time()
 
         tempo = fim - inicio

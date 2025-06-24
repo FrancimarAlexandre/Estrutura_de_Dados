@@ -1,49 +1,28 @@
 import time, random
 
-tamanhos = [10, 100, 500, 1000,2000,5000,10000,50000]
+tamanhos = [10, 100, 150, 200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000]
 
-def merge(arr, l, m, r):
-    n1 = m - l + 1
-    n2 = r - m
+def merge_sort(A):
+    if len(A) <= 1:
+        return A
+    meio = len(A) // 2
+    esquerda = merge_sort(A[:meio])
+    direita = merge_sort(A[meio:])
+    return merge(esquerda, direita)
 
-    L = [0] * (n1)
-    R = [0] * (n2)
-
-    for i in range(0, n1):
-        L[i] = arr[l + i]
-
-    for j in range(0, n2):
-        R[j] = arr[m + 1 + j]
-
-    i = 0     # Initial index of first subarray
-    j = 0     # Initial index of second subarray
-    k = l     # Initial index of merged subarray
-
-    while i < n1 and j < n2:
-        if L[i] <= R[j]:
-            arr[k] = L[i]
+def merge(esq, dir):
+    resultado = []
+    i = j = 0
+    while i < len(esq) and j < len(dir):
+        if esq[i] <= dir[j]:
+            resultado.append(esq[i])
             i += 1
         else:
-            arr[k] = R[j]
+            resultado.append(dir[j])
             j += 1
-        k += 1
-
-    while i < n1:
-        arr[k] = L[i]
-        i += 1
-        k += 1
-
-    while j < n2:
-        arr[k] = R[j]
-        j += 1
-        k += 1
-
-def merge_sort(arr, l, r):
-    if l < r:
-        m = l+(r-l)//2
-        merge_sort(arr, l, m)
-        merge_sort(arr, m+1, r)
-        merge(arr, l, m, r)
+    resultado.extend(esq[i:])
+    resultado.extend(dir[j:])
+    return resultado
 
 def tb(v):
     return sorted(v)
@@ -55,10 +34,8 @@ with open("merge_sort_tb.txt", "w") as f:
     for n in tamanhos:
         vetor = [random.randint(0, 100000) for _ in range(n)]
         v = tb(vetor)
-        l = 0
-        r = len(v) - 1
         inicio = time.time()
-        merge_sort(v,l,r)
+        merge_sort(v)
         fim = time.time()
         tempo = fim - inicio
         f.write(f"{n} {tempo:.6f}\n")
@@ -69,10 +46,8 @@ with open("merge_sort_tw.txt", "w") as f:
     for n in tamanhos:
         vetor = [random.randint(0, 100000) for _ in range(n)]
         v = tw(vetor)
-        l = 0
-        r = len(v) - 1
         inicio = time.time()
-        merge_sort(v,l,r)
+        merge_sort(v)
         fim = time.time()
         tempo = fim - inicio
         f.write(f"{n} {tempo:.6f}\n")
@@ -82,10 +57,8 @@ with open("merge_sort_ta.txt", "w") as f:
 
     for n in tamanhos:
         vetor = [random.randint(0, 100000) for _ in range(n)]
-        l = 0
-        r = len(vetor) - 1
         inicio = time.time()
-        merge_sort(vetor,l,r)
+        merge_sort(vetor)
         fim = time.time()
         tempo = fim - inicio
         f.write(f"{n} {tempo:.6f}\n")

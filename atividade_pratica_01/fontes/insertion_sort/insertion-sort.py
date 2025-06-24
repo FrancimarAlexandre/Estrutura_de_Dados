@@ -5,13 +5,13 @@ def insertion_sort(A):
     for i in range(1, len(A)):
         chave = A[i]
         j = i
-        while (j > 0) and (chave < A[j - 1]):
+        while j > 0 and chave < A[j - 1]:
             A[j] = A[j - 1]
-            j = j - 1
+            j -= 1
         A[j] = chave
     return A
 
-tamanhos = [10, 100, 500, 1000,2000,5000,10000,50000]
+tamanhos = [10, 100, 150, 200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000]
 
 # Melhor caso: vetor já ordenado
 def tb(v):

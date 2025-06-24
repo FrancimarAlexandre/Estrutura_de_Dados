@@ -1,0 +1,11 @@
+set title "Pior caso dos algoritmos"
+set xlabel "Tamanho do vetor"
+set ylabel "Tempo (segundos)"
+set grid
+set key left top
+set datafile separator whitespace
+
+plot "insertion_sort_tw.txt" using 1:2 with linespoints title "INSERTION", \
+     "merge_sort_tw.txt" using 1:2 with linespoints title "MERGE", \
+     "quick_sort_tw.txt" using 1:2 with linespoints title "QUICK", \
+     "selection_sort_tw.txt" using 1:2 with linespoints title "SELECTION", \

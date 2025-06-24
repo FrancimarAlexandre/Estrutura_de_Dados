@@ -1,15 +1,16 @@
 import time, random
 
-def selection_sort(v):
-    size = len(v)
-    for i in range(size):
-        min_index = i
-        for j in range(i + 1, size):
-            if v[j] < v[min_index]:
-                min_index = j
-        v[i], v[min_index] = v[min_index], v[i]
+def selection_sort(A):
+    n = len(A)
+    for i in range(n):
+        min_idx = i
+        for j in range(i + 1, n):
+            if A[j] < A[min_idx]:
+                min_idx = j
+        A[i], A[min_idx] = A[min_idx], A[i]
+    return A
 
-tamanhos = [10, 100, 500, 1000,2000,5000,10000,50000]
+tamanhos = [10, 100, 150, 200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000]
 
 def tb(v):
     return sorted(v)
